@@ -14,6 +14,7 @@ struct ContentView: View {
     
     // User interface views
     @State var alertIsVisible: Bool = false
+    @State var sliderValue: Double = 50.0
     
     // User interface content and layout
     var body: some View {
@@ -32,7 +33,7 @@ struct ContentView: View {
             // Slider row
             HStack {
                 Text("1")
-                Slider(value: .constant(10))
+                Slider(value: self.$sliderValue, in: 1...100)
 
                 Text("100")
             }
@@ -70,6 +71,7 @@ struct ContentView: View {
                         Text("Info")
                     }
                  }
+            .padding(.bottom, 20)
             
             // TODO: Add views for the score, rounds, and start and info buttons here.
         }
